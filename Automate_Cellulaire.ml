@@ -12,7 +12,6 @@ Implémentation des zones:
 zones=[|([|x_min, x_max, y_min, y_max|], n° de la zone);...|]
 *)
 
-(*ajouts suivants: obstacle rond, triangle*)
 open Random;;
 #load "unix.cma";;
 open Unix;;
