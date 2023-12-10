@@ -12,6 +12,7 @@ Implémentation des zones:
 zones=[|([|x_min, x_max, y_min, y_max|], n° de la zone);...|]
 *)
 
+(*ajouts suivants: obstacle rond, triangle*)
 open Random;;
 #load "unix.cma";;
 open Unix;;
@@ -1261,7 +1262,7 @@ let obs_et1= [|(*cour*)
                 (35*metre, 41*metre-1, 14*metre  ,14*metre);
                 (41*metre, 41*metre, 14*metre  ,15*metre);
                 (*porte 1 salle 3*)
-                (41*metre, 41*metre, 15*metre  ,18*metre);
+                (41*metre, 41*metre, 16*metre  ,18*metre);
                 (* porte 2 salle 3*)
                 (41*metre, 41*metre, 19*metre  ,20*metre-1);
                 (40*metre+1, 41*metre, 20*metre  ,20*metre);
@@ -1297,7 +1298,7 @@ let obs_et1= [|(*cour*)
                 (*porte accès cour*)
                 (13*metre, 33*metre, 10*metre  ,10*metre);
                 (*porte accès cour*)
-                (5*metre+1, 11*metre, 10*metre  ,10*metre);
+                (5*metre+1, 11*metre-3, 10*metre  ,10*metre);
                 (5*metre, 5*metre, 9*metre+1  ,10*metre);
                 (4*metre, 5*metre, 9*metre  ,9*metre);
                 (*porte acces cantine/cour*)
@@ -2358,7 +2359,7 @@ let distance_sortie sorties zones mapping obstacles=
 (*fin calcul des distances minimales à la sortie*)
 
 let matrice_flux= Array.make_matrix dimx dimy 0. ;;
-let mapping, obstacles, zones, sorties, cara_sortie, population= simulation_etablissement_1 0;;
+let mapping, obstacles, zones, sorties, cara_sortie, population= simulation_etablissement_1 600;;
 let m_d_sortie= distance_sortie sorties zones mapping obstacles;;
 let n_pop= Array.length population ;;
 let table_hachage_pop= table_hachage_humain population n_pop;;
